@@ -113,7 +113,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -190,13 +190,20 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'onedark'
     end,
   },
+
+  -- { "catppuccin/nvim", name = "catppuccin", priority = 1000,
+  --config = function()
+  --vim.cmd.colorscheme 'catppuccin-latte'
+  --end,
+  --},
+
+
 
   {
     -- Set lualine as statusline
@@ -257,8 +264,16 @@ require('lazy').setup({
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    requires = { {"nvim-lua/plenary.nvim"} }
-	},
+    requires = { { "nvim-lua/plenary.nvim" } }
+  },
+
+
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -283,7 +298,8 @@ require('lazy').setup({
 vim.o.hlsearch = false
 
 -- Make line numbers default
-vim.wo.number = true
+--vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
