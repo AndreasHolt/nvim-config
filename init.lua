@@ -200,6 +200,11 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'onedark'
   --   end,
   -- },
+  
+{
+    "melbaldove/llm.nvim",
+    dependencies = { "nvim-neotest/nvim-nio" }
+},
 
 {
     'folke/tokyonight.nvim',
@@ -370,6 +375,12 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+---[[ LLM Setup ]]
+-- keybinds for prompting with groq
+vim.keymap.set("n", "<leader>,", function() require("llm").prompt({ replace = false, service = "anthropic" }) end)
+vim.keymap.set("v", "<leader>,", function() require("llm").prompt({ replace = false, service = "anthropic" }) end)
+vim.keymap.set("v", "<leader>.", function() require("llm").prompt({ replace = true, service = "anthropic" }) end)
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -490,7 +501,7 @@ vim.keymap.set('t', '<C-q>', '<C-\\><C-n>', { noremap = true, silent = true })
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'svelte' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
