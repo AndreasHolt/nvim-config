@@ -41,6 +41,7 @@ P.S. You can delete this when you're done too. It's your config now :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+--
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -59,6 +60,9 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 vim.opt.rtp:prepend(lazypath)
+vim.opt.swapfile = false
+
+
 
 -- [[ Configure plugins ]]
 -- NOTE: Here is where you install your plugins.
@@ -242,6 +246,16 @@ require('lazy').setup({
     -- },
   },
 
+  {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup({})
+    end,
+  },
+
+
+
+  --{ 'Exafunction/codeium.vim', event = 'BufEnter' },
 
   {
     -- Add indentation guides even on blank lines
@@ -618,10 +632,10 @@ require('mason-lspconfig').setup()
 local servers = {
   -- clangd = {},
   -- gopls = {},
-  -- pyright = {},
+  pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  tsserver = {},
+  html = { filetypes = { 'html', 'twig', 'hbs'} },
   ocamllsp = {
     -- cmd = { "/home/tjdevries/git/ocaml-lsp/_build/default/ocaml-lsp-server/bin/main.exe" },
     settings = {
