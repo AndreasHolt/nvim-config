@@ -193,47 +193,16 @@ require('lazy').setup({
     },
   },
 
-  -- {
-  --   'navarasu/onedark.nvim',
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'onedark'
-  --   end,
-  -- },
-  
 
-{
+  {
     'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
-      vim.cmd[[colorscheme tokyonight-night]]
+      vim.cmd [[colorscheme tokyonight-night]]
     end,
   },
 
-
-  -- { "catppuccin/nvim", name = "catppuccin", priority = 1000,
-  --config = function()
-  --vim.cmd.colorscheme 'catppuccin-latte'
-  --end,
-  --},
-
-
-  --
-  -- {
-  --   -- Set lualine as statusline
-  --   'nvim-lualine/lualine.nvim',
-  --   -- See `:help lualine.txt`
-  --   opts = {
-  --     options = {
-  --       icons_enabled = false,
-  --       theme = 'tokyo night',
-  --       component_separators = '|',
-  --       section_separators = '',
-  --     },
-  --   },
-  -- },
-
-{
+  {
     -- Set lualine as statusline
     'windwp/windline.nvim',
     -- See `:help lualine.txt`
@@ -253,10 +222,6 @@ require('lazy').setup({
       require("supermaven-nvim").setup({})
     end,
   },
-
-
-
-  --{ 'Exafunction/codeium.vim', event = 'BufEnter' },
 
   {
     -- Add indentation guides even on blank lines
@@ -314,18 +279,6 @@ require('lazy').setup({
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'custom.plugins' },
 }, {})
 
@@ -491,7 +444,7 @@ vim.keymap.set('t', '<C-q>', '<C-\\><C-n>', { noremap = true, silent = true })
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'svelte', 'zig', 'haskell'},
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'svelte', 'zig', 'haskell' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -642,7 +595,7 @@ local servers = {
   pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
-  html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
   ocamllsp = {
     -- cmd = { "/home/tjdevries/git/ocaml-lsp/_build/default/ocaml-lsp-server/bin/main.exe" },
     settings = {
