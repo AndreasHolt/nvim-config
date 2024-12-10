@@ -11,6 +11,13 @@ endfunction
 
 " ANKI: Make a small terminal at the bottom of the screen.
 nnoremap <leader>st :call <SID>small_terminal()<CR>
+nnoremap <leader>sv :call <SID>vertical_terminal()<CR>
+
+function! s:vertical_terminal()
+    rightbelow vsplit
+    terminal
+    setlocal nonumber norelativenumber
+endfunction
 
 
 " autocmd BufEnter <buffer> :setlocal scrolloff=0
